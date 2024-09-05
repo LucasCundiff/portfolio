@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>LRC Showcase</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device.width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+        <link rel="icon" href="{% static 'portrait.ico'%}">
+        <script src="{% static 'script.js' %}"></script>
+    </head>
+    <body>
+        <main>
+            <header>
+                <h2>Full Stack Developer</h2>
+                <div class="name-and-pic">
+                    <img src="{% static 'portrait.jpg'%}" class="portrait">
+                    <h1>Lucas Cundiff</h1>
+                </div>
+                <div class="navigation">
+                    <a class="nav-button hightlight" href="#skills">Skills</a>
+                    <a class="nav-button hightlight" href="#projects">Projects</a>
+                    <a class="nav-button hightlight" href="#contact">Contact</a>
+                </div>
+            </header>
+            <section id="skills">
+                    <div class="section-title" >
+                        <h2>Skills</h2>
+                        <a class="hightlight" href="https://www.freecodecamp.org/LucasCundiff" target="_blank">Certifications</a>
+                    </div>
+                    <div class="categories">
+                        <div class="skill-category">
+                            <h3 class="category-title">Front End</h3>
+                            {%for x in frontEndSkills%}
+                                <p>{{x.skillName}}</p>
+                            {%endfor%}
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="category-title">Back End</h3>
+                            {%for x in backEndSkills%}
+                                <p>{{x.skillName}}</p>
+                            {%endfor%}
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="category-title">Database</h3>
+                            {%for x in databaseSkills%}
+                                <p>{{x.skillName}}</p>
+                            {%endfor%}
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="category-title">Tool & Tech</h3>
+                            {%for x in toolTechSkills%}
+                                <p>{{x.skillName}}</p>
+                            {%endfor%}
+                        </div>
+                </div>
+            </section>
+            <section id="projects">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-container">
+                    {%for x in featuredProjects%}
+                    <div class="project-content">
+                        <a href="{{x.projectLink}}" target="_blank">
+                            <img src={{x.projectPreview}}>
+                            <h3>{{x.projectName}}</h3>
+                            <p class="project-text"><span class="tech-stack-title">Tech Stack</span>: {{x.projectTechStack}}</p>
+                            <p class="project-text">{{x.projectDescription}}</p>
+                        </a>
+                    </div>
+                    {%endfor%}
+                </div>
+                <div class="buffer"></div>
+                {%if extraProjects|length > 0 %}
+                    <a class="button-anchor" href="#extra-projects"><button id="extra-button" onclick="toggleExtraProjects()">Expand</button></a>
+                {% endif %}
+            </section>
+            <div id="extra-projects">
+                <div class="projects-container extra">
+                    {%for x in extraProjects %}
+                    <div class="project-content">
+                        <a href="{{x.projectLink}}" target="_blank">
+                            <img src={% static ''|add:x.projectPreview %}>
+                            <h3>{{x.projectName}}</h3>
+                            <p class="project-text"><span class="tech-stack-title">Tech Stack</span>: {{x.projectTechStack}}</p>
+                            <p class="project-text">{{x.projectDescription}}</p>
+                        </a>
+                    </div>
+                    {%endfor%}
+                </div>
+                <a class="button-anchor" href="#projects"><button id="extra-button" onclick="toggleExtraProjects()">Collapse</button></a>
+            </div>
+        </main>
+        <div class="buffer"></div>
+        <div class="buffer"></div>
+        <footer id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-info">
+                <a class="hightlight" href="https://www.linkedin.com/in/lucas-cundiff-b20052285/" target="_blank">Linkedin</a>
+                <p>Lucascundiff@gmail.com</p>
+                <a class="contact-button hightlight" href="https://github.com/LucasCundiff" target="_blank">GitHub</a>
+            </div>
+        </footer>
+    </body>
+</html>
