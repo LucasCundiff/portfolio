@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import local_settings
+from .local_settings import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = local_settings.secret_key
+SECRET_KEY = secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = local_settings.allowed_hosts
+ALLOWED_HOSTS = allowed_hosts
 
 
 # Application definition
@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': local_settings.rds_name,
-        'USER': local_settings.rds_username,
-        'PASSWORD': local_settings.rds_password,
-        'HOST': local_settings.rds_host,
-        'PORT': local_settings.rds_port
+        'NAME': rds_name,
+        'USER': rds_username,
+        'PASSWORD': rds_password,
+        'HOST': rds_host,
+        'PORT': rds_port
     }
 }
 
