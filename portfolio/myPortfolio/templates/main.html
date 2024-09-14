@@ -79,7 +79,7 @@
                     {%for x in extraProjects %}
                     <div class="project-content">
                         <a href="{{x.projectLink}}" target="_blank">
-                            <img src={% static ''|add:x.projectPreview %}>
+                            <img src={{x.projectPreview}}>
                             <h3>{{x.projectName}}</h3>
                             <p class="project-text"><span class="tech-stack-title">Tech Stack</span>: {{x.projectTechStack}}</p>
                             <p class="project-text">{{x.projectDescription}}</p>
