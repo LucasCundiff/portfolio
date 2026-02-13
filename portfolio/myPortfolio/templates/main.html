@@ -11,52 +11,17 @@
     </head>
     <body>
         <main>
-            <header>
-                <h2>Full Stack Developer</h2>
-                <div class="name-and-pic">
-                    <img src="{% static 'portrait.jpg'%}" class="portrait">
-                    <h1>Lucas Cundiff</h1>
-                </div>
-                <div class="navigation">
-                    <a class="nav-button hightlight" href="#skills">Skills</a>
-                    <a class="nav-button hightlight" href="#projects">Projects</a>
-                    <a class="nav-button hightlight" href="#contact">Contact</a>
-                </div>
+            <header class="header">
+            <div class="name-and-pic">
+                <img class="portrait" src="{% static 'portrait.ico' %}" alt="Lucas" />
+                <h2>Lucas Cundiff</h2>
+            </div>
+
+            <h1 class="title">Project Showcase</h1>
+
+            <div class="header-spacer"></div>
             </header>
-            <section id="skills">
-                    <div class="section-title" >
-                        <h2>Skills</h2>
-                        <a class="hightlight" href="https://www.freecodecamp.org/LucasCundiff" target="_blank">Certifications</a>
-                    </div>
-                    <div class="categories">
-                        <div class="skill-category">
-                            <h3 class="category-title">Front End</h3>
-                            {%for x in frontEndSkills%}
-                                <p>{{x.skillName}}</p>
-                            {%endfor%}
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="category-title">Back End</h3>
-                            {%for x in backEndSkills%}
-                                <p>{{x.skillName}}</p>
-                            {%endfor%}
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="category-title">Database</h3>
-                            {%for x in databaseSkills%}
-                                <p>{{x.skillName}}</p>
-                            {%endfor%}
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="category-title">Tool & Tech</h3>
-                            {%for x in toolTechSkills%}
-                                <p>{{x.skillName}}</p>
-                            {%endfor%}
-                        </div>
-                </div>
-            </section>
             <section id="projects">
-                <h2 class="section-title">Projects</h2>
                 <div class="projects-container">
                     {%for x in featuredProjects%}
                     <div class="project-content">
